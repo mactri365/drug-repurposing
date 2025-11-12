@@ -36,8 +36,13 @@ def load_data():
 df = load_data()
 st.sidebar.header("📘 Dataset Information")
 st.sidebar.write(f"**Total Records:** {len(df):,}")
-st.sidebar.write(f"**Unique Drugs:** {df['drugName'].nunique()}")
-st.sidebar.write(f"**Unique Conditions:** {df['condition'].nunique()}")
+
+# Using pandas methods with explicit type conversion to avoid type checking issues
+import pandas as pd
+drugs_series = pd.Series(df['drugName'])
+conditions_series = pd.Series(df['condition'])
+st.sidebar.write(f"**Unique Drugs:** {drugs_series.nunique()}")
+st.sidebar.write(f"**Unique Conditions:** {conditions_series.nunique()}")
 
 # -------------------------------------------------------------
 # MODEL TRAINING (LIGHTWEIGHT)
