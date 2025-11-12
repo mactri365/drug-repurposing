@@ -29,7 +29,7 @@ st.markdown("---")
 # -------------------------------------------------------------
 @st.cache_data
 def load_data():
-    df = pd.read_csv("./datasets/drugsComTrain_raw.tsv", sep="\t")
+    df = pd.read_csv("./datasets/drugsComTrain_raw.csv")
     df = df[['drugName', 'condition', 'review', 'rating', 'usefulCount']].dropna()
     return df
 
@@ -135,5 +135,5 @@ st.markdown("---")
 st.markdown("""
 👨‍⚕️ **Developed by:** Digvijay Yadav  
 🏫 **Project:** AI for Drug Repurposing  
-🧠 **Tech Stack:** Python, Scikit-learn, TF-IDF, Streamlit  
+🧠 **Tech Stack:** Python, Scikit-learn, Streamlit  
 """)
